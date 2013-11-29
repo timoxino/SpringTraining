@@ -14,11 +14,14 @@ public class ObjectFactory
     {
         final T instance = classObject.newInstance();
         final Method method = classObject.getMethods()[0];
-        final RunThisMethod annotation = method.getAnnotation(RunThisMethod.class);
-        final int repeat = annotation.repeat();
-        for (int i = 0; i < repeat; i++)
+        if (method.isAnnotationPresent(RunThisMethod.class))
         {
-            method.invoke(instance);
+            final RunThisMethod annotation = method.getAnnotation(RunThisMethod.class);
+            final int repeat = annotation.repeat();
+            for (int i = 0; i < repeat; i++)
+            {
+                method.invoke(instance);
+            }
         }
         return instance;
     }
