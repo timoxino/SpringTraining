@@ -10,9 +10,9 @@ import by.training.spring.annotation.RunThisMethod;
  */
 public class ObjectFactory
 {
-    public static Object createObject(Class classObject) throws IllegalAccessException, InstantiationException, InvocationTargetException
+    public static <T> T createObject(Class<T> classObject) throws IllegalAccessException, InstantiationException, InvocationTargetException
     {
-        final Object instance = classObject.newInstance();
+        final T instance = classObject.newInstance();
         final Method method = classObject.getMethods()[0];
         final RunThisMethod annotation = method.getAnnotation(RunThisMethod.class);
         final int repeat = annotation.repeat();
