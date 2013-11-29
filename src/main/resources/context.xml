@@ -19,6 +19,7 @@
         <value>will</value>
         <value>be</value>
         <value>back!</value>
+        <ref bean="string"/>
       </list>
     </property>
   </bean>
@@ -30,6 +31,10 @@
         <ref bean="terminatorQuoter"/>
       </list>
     </property>
+  </bean>
+
+  <bean id="string" class="java.lang.String">
+    <constructor-arg value="Astalavista baby!!!"/>
   </bean>
 
 </beans>
