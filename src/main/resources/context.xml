@@ -23,4 +23,13 @@
     </property>
   </bean>
 
+  <bean id="talkingRobot" class="by.training.spring.service.TalkingRobotImpl" init-method="talk">
+    <property name="quoters">
+      <list>
+        <ref bean="shakespeareQuoter"/>
+        <ref bean="terminatorQuoter"/>
+      </list>
+    </property>
+  </bean>
+
 </beans>
