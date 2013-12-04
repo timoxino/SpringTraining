@@ -8,11 +8,15 @@
          http://www.springframework.org/schema/aop
          hxttp://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
+  <bean class="by.training.spring.postprocessor.DestroyablePrototypeBeanFactoryPostProcessor"/>
+
   <bean class="by.training.spring.postprocessor.BenchmarkBeanPostProcessor"/>
 
   <bean class="by.training.spring.postprocessor.BenchmarkMethodBeanPostProcessor"/>
 
   <bean class="by.training.spring.postprocessor.RunThisMethodAnnotationBeanPostProcessor"/>
+
+  <bean class="by.training.spring.bean.PrototypeBean" destroy-method="destroy" scope="prototype"/>
 
   <!--<bean class="by.training.spring.bean.SimpleBean"/>-->
 
