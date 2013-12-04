@@ -8,6 +8,8 @@
          http://www.springframework.org/schema/aop
          hxttp://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
+  <bean class="by.training.spring.postprocessor.DeprecatedReplacerBeanFactoryPostProcessor"/>
+
   <bean class="by.training.spring.postprocessor.DestroyablePrototypeBeanFactoryPostProcessor"/>
 
   <bean class="by.training.spring.postprocessor.BenchmarkBeanPostProcessor"/>
@@ -36,7 +38,7 @@
     </property>
   </bean>
 
-  <bean id="talkingRobot" class="by.training.spring.service.TalkingRobotImpl"> <!-- init-method="talk"> -->
+  <bean id="talkingRobot" class="by.training.spring.service.TalkingRobotImpl" init-method="talk">
     <property name="quoters">
       <list>
         <ref bean="shakespeareQuoter"/>

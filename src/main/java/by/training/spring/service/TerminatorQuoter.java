@@ -1,10 +1,13 @@
 package by.training.spring.service;
 
+import by.training.spring.annotation.MyDeprecated;
+
 import java.util.List;
 
 /**
  * @author Tsimafei_Shchytkavets
  */
+@MyDeprecated(newClass = T1000.class)
 public class TerminatorQuoter implements Quoter
 {
     private List<String> messages;
