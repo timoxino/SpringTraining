@@ -1,6 +1,7 @@
 package by.training.spring.service;
 
 import by.training.spring.annotation.Benchmark;
+import by.training.spring.annotation.BenchmarkMethod;
 
 /**
  * @author Tsimafei_Shchytkavets
@@ -10,6 +11,7 @@ public class ShakespeareQuoter implements Quoter
 {
     private String message;
 
+    @BenchmarkMethod
     @Override
     public void sayQuote()
     {

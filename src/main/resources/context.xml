@@ -10,6 +10,8 @@
 
   <bean class="by.training.spring.postprocessor.BenchmarkBeanPostProcessor"/>
 
+  <bean class="by.training.spring.postprocessor.BenchmarkMethodBeanPostProcessor"/>
+
   <bean class="by.training.spring.postprocessor.RunThisMethodAnnotationBeanPostProcessor"/>
 
   <!--<bean class="by.training.spring.bean.SimpleBean"/>-->
