@@ -8,6 +8,10 @@
          http://www.springframework.org/schema/aop
          hxttp://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
+  <bean class="by.training.spring.postprocessor.RunThisMethodAnnotationBeanPostProcessor"/>
+
+  <bean class="by.training.spring.bean.SimpleBean"/>
+
   <bean id="shakespeareQuoter" class="by.training.spring.service.ShakespeareQuoter">
     <property name="message" value="2b|!2b"/>
   </bean>
