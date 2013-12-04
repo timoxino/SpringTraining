@@ -16,7 +16,12 @@ public class Main
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException
     {
         // Inject beans and use init method to run
-        new ClassPathXmlApplicationContext("context.xml");
+        //new ClassPathXmlApplicationContext("context.xml");
+
+        // Dynamic proxies.
+        final ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("context.xml");
+        final Quoter shakespeareQuoter = classPathXmlApplicationContext.getBean("shakespeareQuoter", Quoter.class);
+        shakespeareQuoter.sayQuote();
 
         // Using declared in spring beans
         /*final ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("context.xml");

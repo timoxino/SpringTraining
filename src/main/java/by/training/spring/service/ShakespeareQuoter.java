@@ -1,8 +1,11 @@
 package by.training.spring.service;
 
+import by.training.spring.annotation.Benchmark;
+
 /**
  * @author Tsimafei_Shchytkavets
  */
+@Benchmark
 public class ShakespeareQuoter implements Quoter
 {
     private String message;
