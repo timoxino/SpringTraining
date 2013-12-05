@@ -1,6 +1,7 @@
 package by.training.spring;
 
 import by.training.spring.bean.SimpleBean;
+import by.training.spring.configuration.MyConfig;
 import by.training.spring.factory.ObjectFactory;
 import by.training.spring.production.MainDeliveryService;
 import by.training.spring.service.Quoter;
@@ -17,10 +18,14 @@ public class Main
 {
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException
     {
+        // Using java-based configuration
+        new AnnotationConfigApplicationContext(MyConfig.class);
+        //new AnnotationConfigApplicationContext("by.training.spring");
+
         // Smart autowiring in map
-        final ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("new-context.xml");
-        final MainDeliveryService bean = classPathXmlApplicationContext.getBean(MainDeliveryService.class);
-        bean.deliver(2);
+        //final ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("new-context.xml");
+        //final MainDeliveryService bean = classPathXmlApplicationContext.getBean(MainDeliveryService.class);
+        //bean.deliver(2);
 
         // Qualifier example
         //new AnnotationConfigApplicationContext("by.training.spring");

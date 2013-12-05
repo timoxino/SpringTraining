@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Tsimafei_Shchytkavets
  */
-@Component
+//@Component
 public class TalkingRobotImpl implements TalkingRobot
 {
     @Autowired

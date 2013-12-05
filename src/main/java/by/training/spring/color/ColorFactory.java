@@ -8,6 +8,7 @@ import java.util.Random;
 /**
  * @author Tsimafei_Shchytkavets
  */
+@Deprecated
 public class ColorFactory implements FactoryBean<Color>
 {
     @Override
