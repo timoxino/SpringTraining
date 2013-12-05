@@ -1,13 +1,18 @@
 package by.training.spring.service;
 
 import by.training.spring.annotation.MyDeprecated;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author Tsimafei_Shchytkavets
  */
 @MyDeprecated(newClass = T1000.class)
+@Component
 public class TerminatorQuoter implements Quoter
 {
     private List<String> messages;
@@ -26,8 +31,10 @@ public class TerminatorQuoter implements Quoter
         return messages;
     }
 
-    public void setMessages(List<String> messages)
+    @Autowired
+    @Value("${terminatorQuotes}")
+    public void setMessages(String[] messages)
     {
-        this.messages = messages;
+        this.messages = Arrays.asList(messages);
     }
 }
