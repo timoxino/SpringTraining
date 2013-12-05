@@ -2,6 +2,7 @@ package by.training.spring;
 
 import by.training.spring.bean.SimpleBean;
 import by.training.spring.factory.ObjectFactory;
+import by.training.spring.production.MainDeliveryService;
 import by.training.spring.service.Quoter;
 import by.training.spring.service.TalkingRobot;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,8 +17,13 @@ public class Main
 {
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException
     {
+        // Smart autowiring in map
+        final ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("new-context.xml");
+        final MainDeliveryService bean = classPathXmlApplicationContext.getBean(MainDeliveryService.class);
+        bean.deliver(2);
+
         // Qualifier example
-        new AnnotationConfigApplicationContext("by.training.spring");
+        //new AnnotationConfigApplicationContext("by.training.spring");
 
         // Using FactoryBean
         //new ClassPathXmlApplicationContext("color-context.xml");
