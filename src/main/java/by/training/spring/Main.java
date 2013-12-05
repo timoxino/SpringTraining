@@ -4,6 +4,7 @@ import by.training.spring.bean.SimpleBean;
 import by.training.spring.factory.ObjectFactory;
 import by.training.spring.service.Quoter;
 import by.training.spring.service.TalkingRobot;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,8 +16,11 @@ public class Main
 {
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException
     {
-        //
-        new ClassPathXmlApplicationContext("color-context.xml");
+        // Qualifier example
+        new AnnotationConfigApplicationContext("by.training.spring");
+
+        // Using FactoryBean
+        //new ClassPathXmlApplicationContext("color-context.xml");
 
         // Inject beans and use init method to run
         //new ClassPathXmlApplicationContext("context.xml");
