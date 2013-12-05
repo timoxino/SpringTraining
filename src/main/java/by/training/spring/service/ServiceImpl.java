@@ -1,5 +1,7 @@
 package by.training.spring.service;
 
+import by.training.spring.annotation.DB;
+import by.training.spring.annotation.DbType;
 import by.training.spring.annotation.Derby;
 import by.training.spring.annotation.Oracle;
 import by.training.spring.dao.Dao;
@@ -14,7 +16,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class ServiceImpl implements DbService
 {
-    @Oracle
+    @DB(DbType.DERBY)
     private Dao dao;
 
     @PostConstruct
