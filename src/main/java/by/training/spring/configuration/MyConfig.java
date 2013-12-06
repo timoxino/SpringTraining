@@ -28,7 +28,7 @@ public class MyConfig
     }
 
     @Bean
-    PropertySourcesPlaceholderConfigurer configurer()
+    static PropertySourcesPlaceholderConfigurer configurer()
     {
         return new PropertySourcesPlaceholderConfigurer();
     }
