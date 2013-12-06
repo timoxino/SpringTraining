@@ -4,6 +4,8 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -16,6 +18,8 @@ import java.util.Random;
  */
 @ComponentScan(basePackages = "by.training.spring")
 @PropertySource("classpath:quotes.properties")
+@ImportResource("classpath:new-context.xml")
+//@Import(DbConfig.class)
 @Configuration
 public class MyConfig
 {
