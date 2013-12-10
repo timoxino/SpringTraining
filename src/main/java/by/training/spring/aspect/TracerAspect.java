@@ -4,6 +4,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,13 +14,16 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class TracerAspect
 {
-    @Before("execution(void *.crud())")
+    @Pointcut("execution(void *.crud())")
+    public void crud() {}
+
+    @Before("crud()")
     public void traceBefore(JoinPoint joinPoint)
     {
         System.out.println("trace before dao crud operation " + joinPoint.getSignature().getName());
     }
 
-    @After("execution(void *.crud())")
+    @After("crud()")
     public void tracAfter()
     {
         System.out.println("trace after dao crud operation");
