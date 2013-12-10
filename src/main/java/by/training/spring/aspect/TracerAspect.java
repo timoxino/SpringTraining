@@ -1,15 +1,21 @@
 package by.training.spring.aspect;
 
+import by.training.spring.annotation.MyDeprecated;
 import by.training.spring.exception.DbRuntimeException;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 
 /**
  * @author Tsimafei_Shchytkavets
@@ -46,6 +52,15 @@ public class TracerAspect
     public void traceDbRuntimeException(DbRuntimeException exception)
     {
         System.out.println("DbRuntimeException happened ("+ exception.getMessage() +"). Emails were sent to " + emails[0] + ", " + emails[1]);
+    }
+
+    @Around("execution((@by.training.spring.annotation.MyDeprecated *) *(..))")
+    public Object interceptDeprecated(ProceedingJoinPoint proceedingJoinPoint) throws Throwable
+    {
+        final Object object = proceedingJoinPoint.proceed();
+        final MyDeprecated myDeprecated = object.getClass().getAnnotation(MyDeprecated.class);
+        final Class newClass1 = myDeprecated.newClass();
+        return newClass1.newInstance();
     }
 }
 

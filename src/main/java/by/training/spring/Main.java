@@ -5,7 +5,9 @@ import by.training.spring.configuration.MyConfig;
 import by.training.spring.factory.ObjectFactory;
 import by.training.spring.production.MainDeliveryService;
 import by.training.spring.service.Quoter;
+import by.training.spring.service.T1000;
 import by.training.spring.service.TalkingRobot;
+import by.training.spring.service.TerminatorQuoter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -20,6 +22,8 @@ public class Main
     {
         // Using java-based configuration
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
+        final Object newObject = context.getBean(SimpleBean.class).getDeprecatedObject();
+        ((T1000)newObject).sayQuote();
 
         //final SimpleBean simpleBean = context.getBean(SimpleBean.class);
         //simpleBean.returnValue();

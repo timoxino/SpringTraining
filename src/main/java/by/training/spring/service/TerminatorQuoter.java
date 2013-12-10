@@ -20,9 +20,12 @@ public class TerminatorQuoter implements Quoter
     @Override
     public void sayQuote()
     {
-        for (String message : messages)
+        if (messages != null)
         {
-            System.out.println(message);
+            for (String message : messages)
+            {
+                System.out.println(message);
+            }
         }
     }
 
