@@ -1,5 +1,6 @@
 package by.training.spring.configuration;
 
+import by.training.spring.bean.SimpleBean;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -37,5 +38,11 @@ public class MyConfig
     static PropertySourcesPlaceholderConfigurer configurer()
     {
         return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean
+    public SimpleBean simpleBean()
+    {
+        return new SimpleBean();
     }
 }

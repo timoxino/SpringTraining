@@ -2,6 +2,7 @@ package by.training.spring.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -27,5 +28,11 @@ public class TracerAspect
     public void tracAfter()
     {
         System.out.println("trace after dao crud operation");
+    }
+
+    @AfterReturning(pointcut = "execution(String *.returnValue())", returning = "returnValue")
+    public void traceAfterReturning(String returnValue)
+    {
+        System.out.println("trace after returning, value = " + returnValue);
     }
 }

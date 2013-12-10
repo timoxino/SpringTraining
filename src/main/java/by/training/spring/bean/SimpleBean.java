@@ -12,4 +12,9 @@ public class SimpleBean
     {
         System.out.println("I'm running");
     }
+
+    public String returnValue()
+    {
+        return "Returned value";
+    }
 }

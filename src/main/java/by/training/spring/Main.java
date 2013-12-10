@@ -19,7 +19,8 @@ public class Main
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException
     {
         // Using java-based configuration
-        new AnnotationConfigApplicationContext(MyConfig.class);
+        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
+        context.getBean(SimpleBean.class).returnValue();
         //new AnnotationConfigApplicationContext("by.training.spring");
 
         // Smart autowiring in map
