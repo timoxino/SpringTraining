@@ -1,5 +1,6 @@
 package by.training.spring.aspect;
 
+import by.training.spring.exception.DbRuntimeException;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -41,10 +42,10 @@ public class TracerAspect
         System.out.println("trace after returning, value = " + returnValue);
     }
 
-    @AfterThrowing(pointcut = "execution(void *.throwException())", throwing = "by.training.spring.exception.DbRuntimeException")
-    public void traceDbRuntimeException()
+    @AfterThrowing(pointcut = "execution(* *.throwException())", throwing = "exception")
+    public void traceDbRuntimeException(DbRuntimeException exception)
     {
-        System.out.println("DbRuntimeException happened. Emails were sent to " + emails[0] + ", " + emails[1]);
+        System.out.println("DbRuntimeException happened ("+ exception.getMessage() +"). Emails were sent to " + emails[0] + ", " + emails[1]);
     }
 }
 

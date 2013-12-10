@@ -5,4 +5,8 @@ package by.training.spring.exception;
  */
 public class DbRuntimeException extends RuntimeException
 {
+    public DbRuntimeException(String message)
+    {
+        super(message);
+    }
 }

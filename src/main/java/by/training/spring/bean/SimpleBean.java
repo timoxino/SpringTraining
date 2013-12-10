@@ -21,6 +21,6 @@ public class SimpleBean
 
     public void throwException()
     {
-        throw new DbRuntimeException();
+        throw new DbRuntimeException("Some problems with DB");
     }
 }
