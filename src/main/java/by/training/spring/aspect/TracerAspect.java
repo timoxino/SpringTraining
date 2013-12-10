@@ -1,5 +1,6 @@
 package by.training.spring.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -13,9 +14,9 @@ import org.springframework.stereotype.Component;
 public class TracerAspect
 {
     @Before("execution(void *.crud())")
-    public void traceBefore()
+    public void traceBefore(JoinPoint joinPoint)
     {
-        System.out.println("trace before dao crud operation");
+        System.out.println("trace before dao crud operation " + joinPoint.getSignature().getName());
     }
 
     @After("execution(void *.crud())")
