@@ -22,8 +22,8 @@ public class Main
     {
         // Using java-based configuration
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
-        final Object newObject = context.getBean(SimpleBean.class).getDeprecatedObject();
-        ((T1000)newObject).sayQuote();
+        //final Object newObject = context.getBean(SimpleBean.class).getDeprecatedObject();
+        //((T1000)newObject).sayQuote();
 
         //final SimpleBean simpleBean = context.getBean(SimpleBean.class);
         //simpleBean.returnValue();
