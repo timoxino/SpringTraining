@@ -20,7 +20,8 @@ public class Main
     {
         // Using java-based configuration
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
-        context.getBean(SimpleBean.class).returnValue();
+        final SimpleBean simpleBean = context.getBean(SimpleBean.class);
+        simpleBean.throwException();
         //new AnnotationConfigApplicationContext("by.training.spring");
 
         // Smart autowiring in map

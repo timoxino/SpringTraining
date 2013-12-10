@@ -3,9 +3,11 @@ package by.training.spring.aspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,6 +17,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class TracerAspect
 {
+    @Value("${support.email}")
+    private String[] emails;
+
     @Pointcut("execution(void *.crud())")
     public void crud() {}
 
@@ -35,4 +40,11 @@ public class TracerAspect
     {
         System.out.println("trace after returning, value = " + returnValue);
     }
+
+    @AfterThrowing(pointcut = "execution(void *.throwException())", throwing = "by.training.spring.exception.DbRuntimeException")
+    public void traceDbRuntimeException()
+    {
+        System.out.println("DbRuntimeException happened. Emails were sent to " + emails[0] + ", " + emails[1]);
+    }
 }
+
