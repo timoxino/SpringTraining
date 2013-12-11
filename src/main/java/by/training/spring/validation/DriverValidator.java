@@ -24,4 +24,13 @@ public class DriverValidator
             System.out.println(violation.getMessage());
         }
     }
+
+    public void validate(DriverService driverService)
+    {
+        final Set<ConstraintViolation<DriverService>> constraintViolations = validator.validate(driverService);
+        for (ConstraintViolation violation : constraintViolations)
+        {
+            System.out.println(violation.getMessage());
+        }
+    }
 }
