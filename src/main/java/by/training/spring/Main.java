@@ -1,5 +1,6 @@
 package by.training.spring;
 
+import by.training.spring.bean.Login;
 import by.training.spring.bean.SimpleBean;
 import by.training.spring.configuration.MyConfig;
 import by.training.spring.factory.ObjectFactory;
@@ -28,7 +29,9 @@ public class Main
         final DriverValidator bean = context.getBean(DriverValidator.class);
         //bean.validate(new Driver(123L, 111, false));
         //bean.validate(new DriverService(new Driver(123L, 111, false)));
-        bean.validate(new Person("name"));
+        final Person name = new Person("name");
+        name.setLogin(new Login("sdf", "dfgdfg"));
+        bean.validate(name);
 
         // Using java-based configuration
         //final Object newObject = context.getBean(SimpleBean.class).getDeprecatedObject();
