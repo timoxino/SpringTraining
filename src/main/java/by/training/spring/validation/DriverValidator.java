@@ -33,4 +33,13 @@ public class DriverValidator
             System.out.println(violation.getMessage());
         }
     }
+
+    public void validate(Person person)
+    {
+        final Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
+        for (ConstraintViolation violation : constraintViolations)
+        {
+            System.out.println(violation.getMessage());
+        }
+    }
 }

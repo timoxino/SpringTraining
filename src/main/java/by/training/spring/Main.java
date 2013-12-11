@@ -11,6 +11,7 @@ import by.training.spring.service.TerminatorQuoter;
 import by.training.spring.validation.Driver;
 import by.training.spring.validation.DriverService;
 import by.training.spring.validation.DriverValidator;
+import by.training.spring.validation.Person;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -26,7 +27,8 @@ public class Main
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
         final DriverValidator bean = context.getBean(DriverValidator.class);
         //bean.validate(new Driver(123L, 111, false));
-        bean.validate(new DriverService(new Driver(123L, 111, false)));
+        //bean.validate(new DriverService(new Driver(123L, 111, false)));
+        bean.validate(new Person("name"));
 
         // Using java-based configuration
         //final Object newObject = context.getBean(SimpleBean.class).getDeprecatedObject();
