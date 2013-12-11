@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import java.awt.*;
 import java.util.Random;
@@ -44,5 +45,11 @@ public class MyConfig
     public SimpleBean simpleBean()
     {
         return new SimpleBean();
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean ValidatorFactoryBean()
+    {
+        return new LocalValidatorFactoryBean();
     }
 }
